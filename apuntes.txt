@@ -1,0 +1,22 @@
+Para crear este proyecto usamos el comando
+
+    - rails new blogapi --api -T
+        --api es para que instale solo lo necesarios para crear una api
+        -T no instala la libreria minitest, en otras palabras no hay test con -T
+
+
+Corremos el proyecto con
+    rails server
+    rails s
+
+====================================================================================================
+Instalacion de gemas necesarias
+- RSpec: Es una libreria especializada en pruebas autodocumentada
+- Shoulda-matchers nos permite que las prubas sean mas legibles y autodocumentadas, nos provee de metodos o utilidarios
+- Factory-Bot: Podemos crear modelos falsos
+- Database-Cleaner: nos permite limpiar una base de datos despues de una prueba
+- Faker: nos permite generar informacion falsa
+
+
+Instalacio nde rspect con el sigueinte comando
+    rails generate rspec:install
