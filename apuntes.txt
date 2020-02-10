@@ -19,4 +19,55 @@ Instalacion de gemas necesarias
 
 
 Instalacio nde rspect con el sigueinte comando
+https://github.com/thoughtbot/shoulda-matchers
     rails generate rspec:install
+
+Configurar Database_cleaner
+https://github.com/DatabaseCleaner/database_cleaner
+    Copiar la configuracion a rails_helperr.b
+        Shoulda::Matchers.configure do |config|
+          config.integrate do |with|
+            with.test_framework :rspec
+
+            with.library :active_record
+            with.library :active_model
+            with.library :action_controller
+            with.library :rails
+          end
+        end
+
+copiar la configuracion que ess con rspect
+    RSpec.configure do |config|
+
+      config.before(:suite) do
+        DatabaseCleaner.strategy = :transaction
+        DatabaseCleaner.clean_with(:truncation)
+      end
+
+      config.around(:each) do |example|
+        DatabaseCleaner.cleaning do
+          example.run
+        end
+      end
+
+    end
+
+Configurar Factory bot
+https://github.com/thoughtbot/factory_bot_rails
+https://rubydoc.info/gems/factory_bot/file/GETTING_STARTED.md
+
+copiar la configuracion dentro la configuracion de rspect
+    config.include FactoryBot::Syntax::Methods
+
+
+Por ultimo ejecutamos bundle exec rspec para verificar que todo este bien
+====================================================================================================
+Configurar rspec + factorybot
+
+Para correr las pruebas usamos el comando:
+    bundle exec rspec
+
+Configurar shoulda-matcher
+
+
+====================================================================================================
